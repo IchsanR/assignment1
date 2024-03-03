@@ -27,6 +27,11 @@ func cariTeman(absen int) Teman {
 }
 
 func main() {
+	if len(os.Args) != 2 {
+		fmt.Println("Argumen lebih dari satu, gunakan: go run main.go <nomor absen>")
+		return
+	}
+
 	absen := os.Args[1]
 
 	var noAbsen int

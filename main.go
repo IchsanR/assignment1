@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"os"
+)
+
 type Teman struct {
 	Nama      string
 	Alamat    string
@@ -22,5 +27,21 @@ func cariTeman(absen int) Teman {
 }
 
 func main() {
+	absen := os.Args[1]
+	var noAbsen int
+
+	fmt.Sscanf(absen, "%d", &noAbsen)
+
+	teman := cariTeman(noAbsen)
+
+	if teman.Nama == "" {
+		fmt.Println("Teman dengan nomor absen tersebut tidak ditemukan")
+		return
+	}
+
+	fmt.Println("Nama:", teman.Nama)
+	fmt.Println("Alamat:", teman.Alamat)
+	fmt.Println("Pekerjaan:", teman.Pekerjaan)
+	fmt.Println("Alasan memilih kelas Golang:", teman.Alasan)
 
 }

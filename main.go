@@ -28,9 +28,13 @@ func cariTeman(absen int) Teman {
 
 func main() {
 	absen := os.Args[1]
-	var noAbsen int
 
-	fmt.Sscanf(absen, "%d", &noAbsen)
+	var noAbsen int
+	_, err := fmt.Sscanf(absen, "%d", &noAbsen)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
 
 	teman := cariTeman(noAbsen)
 
